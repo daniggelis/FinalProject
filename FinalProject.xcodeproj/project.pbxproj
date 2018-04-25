@@ -12,9 +12,15 @@
 		98775AD9208FA42100B00A5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98775AD7208FA42100B00A5A /* Main.storyboard */; };
 		98775ADB208FA42200B00A5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98775ADA208FA42200B00A5A /* Assets.xcassets */; };
 		98775ADE208FA42200B00A5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98775ADC208FA42200B00A5A /* LaunchScreen.storyboard */; };
+		98775AE6208FAD7A00B00A5A /* Bike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98775AE5208FAD7A00B00A5A /* Bike.swift */; };
+		98775AE8208FB19000B00A5A /* BikeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98775AE7208FB19000B00A5A /* BikeDetailViewController.swift */; };
+		98775AEA208FC98100B00A5A /* Bikes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98775AE9208FC98100B00A5A /* Bikes.swift */; };
+		BA795741F37A327BD6433A66 /* Pods_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3DC46B561445206B2F23D18 /* Pods_FinalProject.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		761F07D62F572DC54C474640 /* Pods-FinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject.debug.xcconfig"; sourceTree = "<group>"; };
+		76A23DC4659AAA5107F7DA0B /* Pods-FinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject.release.xcconfig"; sourceTree = "<group>"; };
 		98775AD0208FA42100B00A5A /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98775AD3208FA42100B00A5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98775AD5208FA42100B00A5A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +28,10 @@
 		98775ADA208FA42200B00A5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98775ADD208FA42200B00A5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98775ADF208FA42200B00A5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98775AE5208FAD7A00B00A5A /* Bike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bike.swift; sourceTree = "<group>"; };
+		98775AE7208FB19000B00A5A /* BikeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeDetailViewController.swift; sourceTree = "<group>"; };
+		98775AE9208FC98100B00A5A /* Bikes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bikes.swift; sourceTree = "<group>"; };
+		E3DC46B561445206B2F23D18 /* Pods_FinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +39,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA795741F37A327BD6433A66 /* Pods_FinalProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5065373766A2D36A0C71D883 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3DC46B561445206B2F23D18 /* Pods_FinalProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		98775AC7208FA42000B00A5A = {
 			isa = PBXGroup;
 			children = (
 				98775AD2208FA42100B00A5A /* FinalProject */,
 				98775AD1208FA42100B00A5A /* Products */,
+				D7E7AA813B639054C8A47B2F /* Pods */,
+				5065373766A2D36A0C71D883 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,12 +77,24 @@
 			children = (
 				98775AD3208FA42100B00A5A /* AppDelegate.swift */,
 				98775AD5208FA42100B00A5A /* ViewController.swift */,
+				98775AE7208FB19000B00A5A /* BikeDetailViewController.swift */,
+				98775AE5208FAD7A00B00A5A /* Bike.swift */,
+				98775AE9208FC98100B00A5A /* Bikes.swift */,
 				98775AD7208FA42100B00A5A /* Main.storyboard */,
 				98775ADA208FA42200B00A5A /* Assets.xcassets */,
 				98775ADC208FA42200B00A5A /* LaunchScreen.storyboard */,
 				98775ADF208FA42200B00A5A /* Info.plist */,
 			);
 			path = FinalProject;
+			sourceTree = "<group>";
+		};
+		D7E7AA813B639054C8A47B2F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				761F07D62F572DC54C474640 /* Pods-FinalProject.debug.xcconfig */,
+				76A23DC4659AAA5107F7DA0B /* Pods-FinalProject.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +104,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 98775AE2208FA42200B00A5A /* Build configuration list for PBXNativeTarget "FinalProject" */;
 			buildPhases = (
+				357C017BCB32F8CE277C3D6B /* [CP] Check Pods Manifest.lock */,
 				98775ACC208FA42000B00A5A /* Sources */,
 				98775ACD208FA42000B00A5A /* Frameworks */,
 				98775ACE208FA42000B00A5A /* Resources */,
+				7B4BEC9CFC19E74E776F6981 /* [CP] Embed Pods Frameworks */,
+				DD6452C53E91510B5FB5ACEF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +166,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		357C017BCB32F8CE277C3D6B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FinalProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B4BEC9CFC19E74E776F6981 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD6452C53E91510B5FB5ACEF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		98775ACC208FA42000B00A5A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -137,6 +231,9 @@
 			files = (
 				98775AD6208FA42100B00A5A /* ViewController.swift in Sources */,
 				98775AD4208FA42100B00A5A /* AppDelegate.swift in Sources */,
+				98775AE8208FB19000B00A5A /* BikeDetailViewController.swift in Sources */,
+				98775AE6208FAD7A00B00A5A /* Bike.swift in Sources */,
+				98775AEA208FC98100B00A5A /* Bikes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +375,7 @@
 		};
 		98775AE3208FA42200B00A5A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 761F07D62F572DC54C474640 /* Pods-FinalProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -295,6 +393,7 @@
 		};
 		98775AE4208FA42200B00A5A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76A23DC4659AAA5107F7DA0B /* Pods-FinalProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

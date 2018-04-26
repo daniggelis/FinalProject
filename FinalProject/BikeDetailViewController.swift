@@ -14,31 +14,40 @@ import MapKit
 class BikeDetailViewController: UIViewController {
     
     @IBOutlet weak var cancelButton: UIBarButtonItem!
-    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var availabilityLabel: UILabel!
     @IBOutlet weak var locationField: UILabel!
     @IBOutlet weak var lenderField: UITextField!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var borrowBikeButton: UIButton!
     
     var bike: Bike!
     let regionDistance: CLLocationDistance = 750
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //mapView.delegate = self
       
         if bike == nil {
-            bike = Bike(name: "", address: "", coordinate: CLLocationCoordinate2D() , lender: "")
+            bike = Bike(availability: "Available", address: "", coordinate: CLLocationCoordinate2D() , lender: "")
         }
         
         let region = MKCoordinateRegionMakeWithDistance(bike.coordinate, regionDistance, regionDistance)
         mapView.setRegion(region, animated: true)
         updateUserInterface()
+        
     }
     
     func updateUserInterface(){
-        nameField.text = bike.name
+        availabilityLabel.text = bike.availability
         locationField.text = bike.address
         lenderField.text = bike.lender
+        
+        if bike.availability == "Not Available"{
+            borrowBikeButton.setTitle("Return this Bike!", for: .normal)
+        }else if bike.availability == "Available"{
+            borrowBikeButton.setTitle("Borrow this Bike!", for: .normal)
+        }
         updateMap()
     }
     
@@ -50,11 +59,25 @@ class BikeDetailViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "unwindFromSave"{
-            bike.name = nameField.text!
             bike.address = locationField.text!
             bike.lender = lenderField.text!
         }
     }
+    
+    
+    
+    @IBAction func borrowBikePressed(_ sender: UIButton) {
+        if borrowBikeButton.titleLabel?.text == "Return this Bike!"{
+            bike.availability = "Available"
+            updateUserInterface()
+        }else{
+            bike.availability = "Not Available"
+            updateUserInterface()
+        }
+        
+        }
+        
+
     
     
     @IBAction func lookUpPressed(_ sender: UIButton) {
@@ -72,6 +95,7 @@ class BikeDetailViewController: UIViewController {
         }
         
     }
+    
 }
 
 extension BikeDetailViewController: GMSAutocompleteViewControllerDelegate {

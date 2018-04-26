@@ -23,6 +23,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
+        
         tableView.delegate = self
         tableView.dataSource = self
         //mapViewVC.delegate = self
@@ -30,13 +33,9 @@ class ViewController: UIViewController {
         originalCoordinate.longitude = -71.170126
         // set to Fulton Hall
         
-        let bike1 = Bike(name: "Tiffany's Bike", address: "140 comm ave", coordinate: CLLocationCoordinate2D(), lender: "tiffany")
-        bikeArray.append(bike1)
         
         let region = MKCoordinateRegionMakeWithDistance(originalCoordinate, regionDist, regionDist)
         mapViewVC.setRegion(region, animated: true)
-        
-        
       
         
     }
@@ -45,8 +44,10 @@ class ViewController: UIViewController {
             let destination = segue.destination as! BikeDetailViewController
             let index = tableView.indexPathForSelectedRow?.row
             destination.bike = bikeArray[index!]
+
         }
     }
+    
     
     @IBAction func unwindFromDetailViewController(segue: UIStoryboardSegue){
         let sourceViewContoller = segue.source as! BikeDetailViewController
@@ -68,8 +69,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = bikeArray[indexPath.row].name
-        cell.detailTextLabel?.text = bikeArray[indexPath.row].subtitle
+        cell.textLabel?.text = bikeArray[indexPath.row].address
+        cell.detailTextLabel?.text = bikeArray[indexPath.row].availability
         return cell
     }
 }
+

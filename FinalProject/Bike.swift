@@ -13,7 +13,7 @@ import MapKit
 
 class Bike: NSObject, MKAnnotation {
     
-    var name: String
+    var availability: String
     var address: String
     var coordinate: CLLocationCoordinate2D
     var lender: String
@@ -26,18 +26,18 @@ class Bike: NSObject, MKAnnotation {
     }
     
     var title: String? {
-        return name
+        return availability
     }
     var subtitle: String?{
         return address
     }
     
     var dictionary: [String: Any]{
-        return ["name": name, "address": address, "coordinate": coordinate, "lender": lender]
+        return ["availability": availability, "address": address, "coordinate": coordinate, "lender": lender]
     }
     
-    init(name: String, address: String, coordinate: CLLocationCoordinate2D, lender: String){
-        self.name = name
+    init(availability: String, address: String, coordinate: CLLocationCoordinate2D, lender: String){
+        self.availability = availability
         self.address = address
         self.coordinate = coordinate
         self.lender = lender

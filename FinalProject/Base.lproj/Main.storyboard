@@ -57,11 +57,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="0.94014875860000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Bikes" id="mQL-Dc-8Is">
-                        <barButtonItem key="rightBarButtonItem" title="Add Bike" id="Qjn-oT-jWU">
+                        <barButtonItem key="rightBarButtonItem" title="Add Bike" springLoaded="YES" id="Qjn-oT-jWU">
+                            <color key="tintColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="0.94014875860000002" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="mmW-rS-msk" kind="presentation" identifier="addBike" id="cbg-EU-f3C"/>
                             </connections>
@@ -84,39 +85,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGk-2c-IoS">
-                                <rect key="frame" x="26" y="403" width="140" height="135"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="AGk-2c-IoS">
+                                <rect key="frame" x="117" y="401" width="140" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="BORROW A BIKE">
+                                <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="0.94014875856164382" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
+                                <state key="normal">
+                                    <string key="title">Borrow
+     a 
+  Bike!</string>
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="borrowABike" id="hcD-xZ-hdQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3b-KC-Sgd">
-                                <rect key="frame" x="219" y="403" width="140" height="135"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="LEND A BIKE">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="FwK-9P-WtO" kind="show" identifier="lendABike" id="IFS-ce-mbx"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FFf-HT-Bzj">
-                                <rect key="frame" x="67" y="90" width="240" height="233"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="FFf-HT-Bzj">
+                                <rect key="frame" x="0.0" y="128" width="375" height="220"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.9826898851236936" green="0.99241948794670043" blue="0.99241948794670043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="ii2-KO-Rgb"/>
                     </view>
-                    <navigationItem key="navigationItem" id="SZG-gr-6VW"/>
+                    <navigationItem key="navigationItem" id="anJ-fi-JGz">
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="CpR-fL-ONj">
+                            <connections>
+                                <action selector="signOut:" destination="cgg-4N-Osu" id="3Oj-bP-I1O"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vff-7y-q3s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -152,15 +150,17 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqB-eV-6NB">
-                                <rect key="frame" x="4" y="126" width="109" height="30"/>
+                                <rect key="frame" x="121" y="80" width="111" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="look up location"/>
+                                <state key="normal" title="Search Location">
+                                    <color key="titleColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="0.94014875860000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="lookUpPressed:" destination="FwK-9P-WtO" eventType="touchUpInside" id="Hge-Kf-Ct5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="walsh hall" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfU-xd-7QU">
-                                <rect key="frame" x="121" y="64" width="191" height="70"/>
+                                <rect key="frame" x="121" y="106" width="191" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
@@ -171,23 +171,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ay4-4A-Crx">
-                                <rect key="frame" x="10" y="89" width="71" height="21"/>
+                                <rect key="frame" x="16" y="131" width="71" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dga-PD-g0F">
-                                <rect key="frame" x="115" y="318" width="116" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Borrow this Bike!">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="borrowBikePressed:" destination="FwK-9P-WtO" eventType="touchUpInside" id="eeh-xY-HL0"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ja-fe-URQ">
                                 <rect key="frame" x="121" y="178" width="165" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -195,18 +184,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Dga-PD-g0F">
+                                <rect key="frame" x="118" y="288" width="116" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="0.62928082191780821" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <string key="title">Borrow 
+   this 
+  Bike!</string>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="borrowBikePressed:" destination="FwK-9P-WtO" eventType="touchUpInside" id="eeh-xY-HL0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="9zy-KD-65X"/>
                     </view>
                     <navigationItem key="navigationItem" id="TZJ-J7-Rwi">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="XIs-fK-bSW">
+                            <color key="tintColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="0.94014875860000002" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="cancelButtonPressed:" destination="FwK-9P-WtO" id="zQp-82-jdm"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="zJl-Nf-got">
+                            <color key="tintColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="0.94014875860000002" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
+                                <action selector="saveButtonPressed:" destination="FwK-9P-WtO" id="dWu-qX-way"/>
                                 <segue destination="8gX-pG-dE7" kind="unwind" identifier="unwindFromSave" unwindAction="unwindFromDetailViewControllerWithSegue:" id="hA2-by-D8j"/>
                             </connections>
                         </barButtonItem>
@@ -280,8 +286,11 @@
             <point key="canvasLocation" x="2160.8000000000002" y="-508.69565217391306"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logo" width="493" height="218"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IFS-ce-mbx"/>
+        <segue reference="UPr-Dx-xwm"/>
         <segue reference="hcD-xZ-hdQ"/>
     </inferredMetricsTieBreakers>
 </document>

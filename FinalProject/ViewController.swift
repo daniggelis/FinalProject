@@ -16,15 +16,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var mapViewVC: MKMapView!
     
     var bikeArray = [Bike]()
-    var bikes: Bike!
-    let regionDist: CLLocationDistance = 750
+    var bikes: Bikes!
+    let regionDist: CLLocationDistance = 1000
     var originalCoordinate = CLLocationCoordinate2D()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -33,11 +31,23 @@ class ViewController: UIViewController {
         originalCoordinate.longitude = -71.170126
         // set to Fulton Hall
         
+        let bike1 = Bike(availability: "Available", address: "123 Main St", coordinate: CLLocationCoordinate2D(), lender: "", documentID: "")
+        bikeArray.append(bike1)
         
         let region = MKCoordinateRegionMakeWithDistance(originalCoordinate, regionDist, regionDist)
         mapViewVC.setRegion(region, animated: true)
+        addAnnotations()
       
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if bikes != nil{
+            bikes.loadData {
+            self.tableView.reloadData()
+            }
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showBike"{
@@ -48,16 +58,29 @@ class ViewController: UIViewController {
         }
     }
     
+    func addAnnotations(){
+        if bikeArray.count > 0{
+            for index in 0...bikeArray.count-1{
+            //mapView.addAnnotation(bike)
+                mapViewVC.addAnnotation(bikeArray[index] as MKAnnotation)
+            }
+        }
+    }
+    
     
     @IBAction func unwindFromDetailViewController(segue: UIStoryboardSegue){
         let sourceViewContoller = segue.source as! BikeDetailViewController
         if let indexPath = tableView.indexPathForSelectedRow{
+            addAnnotations()
             bikeArray[indexPath.row] = sourceViewContoller.bike
             tableView.reloadRows(at: [indexPath], with: .automatic)
+            
         }else{
+            addAnnotations()
             let newIndexPath = IndexPath(row: bikeArray.count, section: 0)
             bikeArray.append(sourceViewContoller.bike)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
+            
         }
     }
 }

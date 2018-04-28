@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import GooglePlaces
+import Firebase
 import MapKit
 
 class BikeDetailViewController: UIViewController {
@@ -29,7 +30,7 @@ class BikeDetailViewController: UIViewController {
         //mapView.delegate = self
       
         if bike == nil {
-            bike = Bike(availability: "Available", address: "", coordinate: CLLocationCoordinate2D() , lender: "")
+            bike = Bike()
         }
         
         let region = MKCoordinateRegionMakeWithDistance(bike.coordinate, regionDistance, regionDistance)
@@ -38,14 +39,25 @@ class BikeDetailViewController: UIViewController {
         
     }
     
+    func leaveViewController(){
+        let isPresentingInAddMode = presentingViewController is UINavigationController
+        if isPresentingInAddMode {
+            dismiss(animated: true, completion: nil)
+        }else{
+            navigationController?.popViewController(animated: true)
+        }
+    }
+    
     func updateUserInterface(){
         availabilityLabel.text = bike.availability
         locationField.text = bike.address
         lenderField.text = bike.lender
         
         if bike.availability == "Not Available"{
+            availabilityLabel.textColor = UIColor.red
             borrowBikeButton.setTitle("Return this Bike!", for: .normal)
         }else if bike.availability == "Available"{
+            availabilityLabel.textColor = UIColor.green
             borrowBikeButton.setTitle("Borrow this Bike!", for: .normal)
         }
         updateMap()
@@ -75,9 +87,21 @@ class BikeDetailViewController: UIViewController {
             updateUserInterface()
         }
         
-        }
+    }
         
-
+    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        bike.availability = availabilityLabel.text!
+        bike.lender = lenderField.text!
+        
+        bike.saveData { sucess in
+            if sucess{
+                self.leaveViewController()
+            }else{
+                print("ERROR couldn't leave this view controller because data was not saved")
+            }
+        }
+    }
+    
     
     
     @IBAction func lookUpPressed(_ sender: UIButton) {
@@ -87,12 +111,7 @@ class BikeDetailViewController: UIViewController {
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
-        let isPresentingInAddMode = presentingViewController is UINavigationController
-        if isPresentingInAddMode {
-            dismiss(animated: true, completion: nil)
-        }else{
-            navigationController?.popViewController(animated: true)
-        }
+        self.leaveViewController()
         
     }
     

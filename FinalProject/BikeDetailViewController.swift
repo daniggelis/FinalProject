@@ -37,6 +37,7 @@ class BikeDetailViewController: UIViewController {
         mapView.setRegion(region, animated: true)
         updateUserInterface()
         
+        
     }
     
     func leaveViewController(){
@@ -53,6 +54,10 @@ class BikeDetailViewController: UIViewController {
         locationField.text = bike.address
         lenderField.text = bike.lender
         
+        if bike.address == ""{
+            bike.lender = (Auth.auth().currentUser?.email)!
+        }
+        
         if bike.lender != Auth.auth().currentUser?.email {
             lenderField.isEnabled = false
         }
@@ -64,6 +69,7 @@ class BikeDetailViewController: UIViewController {
             availabilityLabel.textColor = UIColor.green
             borrowBikeButton.setTitle("Borrow this Bike!", for: .normal)
         }
+        
         updateMap()
     }
     
@@ -137,6 +143,7 @@ extension BikeDetailViewController: GMSAutocompleteViewControllerDelegate {
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         bike.address = place.formattedAddress ?? ""
         bike.coordinate = place.coordinate
+        bike.placeName = place.name
         
         dismiss(animated: true, completion: nil)
         updateUserInterface()

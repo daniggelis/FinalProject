@@ -53,6 +53,7 @@ class ViewController: UIViewController {
             self.tableView.reloadData()
             }
         }
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showBike"{
@@ -109,8 +110,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = bikeArray[indexPath.row].address
+        cell.textLabel?.text = bikeArray[indexPath.row].placeName
         cell.detailTextLabel?.text = bikeArray[indexPath.row].availability
+        if cell.detailTextLabel?.text == "Available"{
+            cell.detailTextLabel?.textColor = UIColor.green
+        }else{
+            cell.detailTextLabel?.textColor = UIColor.red
+        }
         return cell
     }
 }

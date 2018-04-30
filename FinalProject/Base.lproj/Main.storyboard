@@ -110,6 +110,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="anJ-fi-JGz">
                         <barButtonItem key="leftBarButtonItem" title="Sign Out" id="CpR-fL-ONj">
+                            <color key="tintColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="0.94014875860000002" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="signOut:" destination="cgg-4N-Osu" id="3Oj-bP-I1O"/>
                             </connections>
@@ -129,30 +130,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egI-Od-de0">
-                                <rect key="frame" x="16" y="178" width="54" height="21"/>
+                                <rect key="frame" x="30" y="178" width="54" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lender:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyt-g9-cm0">
-                                <rect key="frame" x="16" y="244" width="58" height="21"/>
+                                <rect key="frame" x="26" y="241" width="58" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jcZ-B3-aUF">
-                                <rect key="frame" x="108" y="241" width="191" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqB-eV-6NB">
-                                <rect key="frame" x="121" y="80" width="111" height="30"/>
+                                <rect key="frame" x="120" y="80" width="114" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Search Location">
+                                <state key="normal" title="Lookup Location">
                                     <color key="titleColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="0.94014875860000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -198,6 +192,13 @@
                                     <action selector="borrowBikePressed:" destination="FwK-9P-WtO" eventType="touchUpInside" id="eeh-xY-HL0"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jcZ-B3-aUF">
+                                <rect key="frame" x="108" y="237" width="191" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="9zy-KD-65X"/>
@@ -212,8 +213,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="zJl-Nf-got">
                             <color key="tintColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="0.94014875860000002" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="saveButtonPressed:" destination="FwK-9P-WtO" id="dWu-qX-way"/>
-                                <segue destination="8gX-pG-dE7" kind="unwind" identifier="unwindFromSave" unwindAction="unwindFromDetailViewControllerWithSegue:" id="hA2-by-D8j"/>
+                                <segue destination="8gX-pG-dE7" kind="unwind" unwindAction="unwindFromDetailViewControllerWithSegue:" id="hw3-Db-bQj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

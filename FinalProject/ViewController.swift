@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Firebase
 import MapKit
 
 class ViewController: UIViewController {
@@ -16,7 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var mapViewVC: MKMapView!
     
     var bikeArray = [Bike]()
-    var bikes: Bikes!
+    var bikes = Bikes()
+    var bike: Bike!
     let regionDist: CLLocationDistance = 1000
     var originalCoordinate = CLLocationCoordinate2D()
     
@@ -30,19 +32,22 @@ class ViewController: UIViewController {
         originalCoordinate.latitude = 42.334773
         originalCoordinate.longitude = -71.170126
         // set to Fulton Hall
+        bikes.loadData {
+            self.bikeArray = self.bikes.bikesArray
+            self.addAnnotations()
+            
+        }
         
-        let bike1 = Bike(availability: "Available", address: "123 Main St", coordinate: CLLocationCoordinate2D(), lender: "", documentID: "")
-        bikeArray.append(bike1)
         
         let region = MKCoordinateRegionMakeWithDistance(originalCoordinate, regionDist, regionDist)
         mapViewVC.setRegion(region, animated: true)
-        addAnnotations()
       
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        addAnnotations()
         if bikes != nil{
             bikes.loadData {
             self.tableView.reloadData()
@@ -59,11 +64,23 @@ class ViewController: UIViewController {
     }
     
     func addAnnotations(){
+         mapViewVC.removeAnnotations(mapViewVC.annotations)
+        
         if bikeArray.count > 0{
             for index in 0...bikeArray.count-1{
             //mapView.addAnnotation(bike)
                 mapViewVC.addAnnotation(bikeArray[index] as MKAnnotation)
+                mapViewVC.selectAnnotation(mapViewVC.annotations[index], animated: true)
             }
+        }
+    }
+    
+    func leaveViewController(){
+        let isPresentingInAddMode = presentingViewController is UINavigationController
+        if isPresentingInAddMode {
+            dismiss(animated: true, completion: nil)
+        }else{
+            navigationController?.popViewController(animated: true)
         }
     }
     
@@ -74,13 +91,13 @@ class ViewController: UIViewController {
             addAnnotations()
             bikeArray[indexPath.row] = sourceViewContoller.bike
             tableView.reloadRows(at: [indexPath], with: .automatic)
-            
+            sourceViewContoller.saveIt()
         }else{
             addAnnotations()
             let newIndexPath = IndexPath(row: bikeArray.count, section: 0)
             bikeArray.append(sourceViewContoller.bike)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
-            
+            sourceViewContoller.saveIt()
         }
     }
 }

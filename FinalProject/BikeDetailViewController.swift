@@ -53,6 +53,10 @@ class BikeDetailViewController: UIViewController {
         locationField.text = bike.address
         lenderField.text = bike.lender
         
+        if bike.lender != Auth.auth().currentUser?.email {
+            lenderField.isEnabled = false
+        }
+        
         if bike.availability == "Not Available"{
             availabilityLabel.textColor = UIColor.red
             borrowBikeButton.setTitle("Return this Bike!", for: .normal)
@@ -76,7 +80,31 @@ class BikeDetailViewController: UIViewController {
         }
     }
     
+    func saveIt() {
+        bike.availability = availabilityLabel.text!
+        bike.lender = lenderField.text!
+        print("^^^^^^^^^^^")
+        bike.saveData() { success in
+            if success{
+                self.leaveViewController()
+            }else{
+                print("ERROR couldn't leave this view controller because data was not saved")
+            }
+        }
+    }
     
+    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        bike.availability = availabilityLabel.text!
+        bike.lender = lenderField.text!
+        print("^^^^^^^^^^^")
+        bike.saveData() { success in
+            if success{
+                self.leaveViewController()
+            }else{
+                print("ERROR couldn't leave this view controller because data was not saved")
+            }
+        }
+    }
     
     @IBAction func borrowBikePressed(_ sender: UIButton) {
         if borrowBikeButton.titleLabel?.text == "Return this Bike!"{
@@ -88,20 +116,6 @@ class BikeDetailViewController: UIViewController {
         }
         
     }
-        
-    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
-        bike.availability = availabilityLabel.text!
-        bike.lender = lenderField.text!
-        
-        bike.saveData { sucess in
-            if sucess{
-                self.leaveViewController()
-            }else{
-                print("ERROR couldn't leave this view controller because data was not saved")
-            }
-        }
-    }
-    
     
     
     @IBAction func lookUpPressed(_ sender: UIButton) {

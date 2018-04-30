@@ -35,7 +35,7 @@ class Bike: NSObject, MKAnnotation{
     }
     
     var dictionary: [String: Any]{
-        return ["availability": availability, "address": address, "longitude": coordinate.longitude, "latitude": coordinate.latitude, "lender": lender, "documentID": documentID]
+        return ["availability": availability, "address": address, "longitude": coordinate.longitude, "latitude": coordinate.latitude, "lender": lender]
     }
     
     init(availability: String, address: String, coordinate: CLLocationCoordinate2D, lender: String, documentID: String){
@@ -57,6 +57,7 @@ class Bike: NSObject, MKAnnotation{
         let longitude = dictionary["longitude"] as! CLLocationDegrees? ?? 0.0
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let lender = dictionary["lender"] as! String? ?? ""
+        
         self.init(availability: availability, address: address, coordinate: coordinate, lender: lender, documentID: "")
     }
     
@@ -67,6 +68,7 @@ class Bike: NSObject, MKAnnotation{
             print("*** ERROR: Could not save data because we don't have a valid postingUserID")
             return completed(false)
         }
+        print("*************")
         self.lender = lender
         // Create the dictionary representing the data we want to save
         let dataToSave = self.dictionary
